@@ -55,7 +55,12 @@ response = requests.post(
     }
 )
 
-post_text = response.json()["choices"][0]["message"]["content"].strip()
+resp_json = response.json()
+print(resp_json)
+if "choices" in resp_json:
+    post_text = resp_json["choices"][0]["message"]["content"].strip()
+else:
+    post_text = "هاشم امروز حوصله نداشت بنویسه"
 
 requests.post(
     f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage",
