@@ -43,7 +43,7 @@ try:
             "Content-Type": "application/json"
         },
         json={
-            "model": "grok-beta",
+            "model": "grok-2-latest",
             "messages": [{"role": "user", "content": prompt}],
             "max_tokens": 200
         },
